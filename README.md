@@ -1,4 +1,4 @@
-# haskellComunitario
+# Haskell Comunitario
 
-> [!IMPORTANT] Unica regla
+> [!IMPORTANT]
 > Subir tus ejercicios en una nueva carpeta con tu nombreApellido
