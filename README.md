@@ -2,7 +2,7 @@
 
 Repositorio destinado a poder copiarnos de Alan cuando no entendamos que poronga hacer
 
-## Paso a Paso para subir tu carpeta al repo
+## Paso a paso para subir tu carpeta al repo
 
 1. Primero clonás el repo en la compu con éste comando en la terminal
 ```
