@@ -1,8 +1,10 @@
 # Haskell Comunitario
 
+Repositorio destinado a poder copiarnos de Alan cuando no entendamos que poronga hacer
+
 ## Paso a Paso para subir tu carpeta al repo
 
-1. Primero clonás el repo en la compu con el siguiente comando en la terminal
+1. Primero clonás el repo en la compu con éste comando en la terminal
 ```
 git clone https://github.com/ulimonte05/haskellComunitario-.git
 ```
@@ -11,7 +13,7 @@ git clone https://github.com/ulimonte05/haskellComunitario-.git
 > [!WARNING]
 > Asegurate de borrar la carpeta *.git* de la carpeta con tu nombre, sino tira veintemil errores
 
-3. Una vez copiada la carpeta, desde la terminal te metes y haces un commit y push
+3. Una vez copiada la carpeta, desde la terminal te metés a *haskellComunitario* y hacés un commit y push
 ```
 cd haskellComunitario-
 git add .
@@ -19,6 +21,6 @@ git commit -m "agrego mi carpeta"
 git push
 ```
 
-Y Listo! Tu carpeta deberia ya estar subida al repo, por las dudas fijate recargando la pagina
+Y Listo! Tu carpeta ya deberia estar subida al repo, pero por las dudas fijate recargando la página
 
-Un placer ayudar, cualquier cosa al wpp
+Un placer ayudar 😇, cualquier cosa mensajito al wpp y solucionado
