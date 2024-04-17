@@ -222,9 +222,25 @@ mayorDigitoPar :: Integer -> Integer
 mayorDigitoPar n = recorrerDigitos n 1 (-1)
 
 recorrerDigitos :: Integer -> Integer -> Integer -> Integer -- "n"umero, "p"osicion, "m"ayor
-recorrerDigitos n p m | p >= cantDigitos n = m
+recorrerDigitos n p m | p > cantDigitos n = m
                       | mod (iesimoDigito n p) 2 == 0 && iesimoDigito n p > m = recorrerDigitos n (p+1) (iesimoDigito n p)
                       | otherwise = recorrerDigitos n (p+1) m
 
 
+-- 19 Implementar la función esSumaInicialDePrimos :: Int ->Bool
+
+esSumaInicialDePrimos :: Integer -> Bool
+esSumaInicialDePrimos n = sumaIniPrimos n 0 1
+
+sumaIniPrimos :: Integer -> Integer -> Integer -> Bool
+sumaIniPrimos n s c | n == s = True
+                    | n < s = False
+                    | otherwise = sumaIniPrimos n (sumatoria s c) (c+1)
+                        where sumatoria s c = s + nEsimoPrimo c
+
+
+-- 20 Especificar e implementar la función tomaValorMax :: Int ->Int ->Int que dado un número entero n1 ≥1 y un n2 ≥ n1 devuelve algún m entre n1 y n2 tal que sumaDivisores(m) = max{sumaDivisores(i) |n1 ≤i ≤n2}
+
+tomaValorMax :: Int -> Int -> Int
+tomaValorMax n1 n2 
 
