@@ -1,9 +1,9 @@
 -- recursion
 
-factorial :: Integer -> Integer
-factorial n
-    | n == 0 = 1
-    | n > 0 = n * factorial (n-1)
+-- factorial :: Integer -> Integer
+-- factorial n
+--     | n == 0 = 1
+--     | n > 0 = n * factorial (n-1)
 
 -- fibonacci 1
 
@@ -81,3 +81,48 @@ esCapicua x
 
 reducirNum :: Integer -> Integer
 reducirNum n = div (mod n (10^(cantDigitos n - 1))) 10
+
+-- 10
+-- a 
+
+sumarPotencias :: Integer -> Integer
+sumarPotencias n | n > 0 = 2^n + sumarPotencias (n-1)
+                 | otherwise = n + 1
+
+-- b
+
+sumarPotenciasEnesimas :: Integer -> Integer -> Integer
+sumarPotenciasEnesimas n q | n > 0 = q^n + sumarPotenciasEnesimas (n-1) q
+                           | otherwise = n 
+
+-- c
+
+sumarPotenciasEnesimasDobles :: Integer -> Integer -> Integer
+sumarPotenciasEnesimasDobles q n = sumarPotenciasDesde q (2*n)
+
+sumarPotenciasDesde :: Integer -> Integer -> Integer
+sumarPotenciasDesde q i
+  | i > 0     = q^i + sumarPotenciasDesde q (i-1)
+  | otherwise = 0
+
+-- d
+
+sumarEnesimaDoble :: Integer -> Integer -> Integer
+sumarEnesimaDoble q n = sumarPotenciasDesdeN q (2*n) n
+
+sumarPotenciasDesdeN :: Integer -> Integer -> Integer -> Integer
+sumarPotenciasDesdeN q i u
+  | i >= u     = q^i + sumarPotenciasDesdeN q (i-1) u
+  | otherwise = 0
+
+--11
+
+eAprox :: Integer -> Float
+eAprox n | n >= 0 = (1 / fromIntegral (factorial n)) + eAprox (n-1)
+         | otherwise = 0
+
+factorial :: Integer -> Integer
+factorial x | x > 0 = x * factorial (x-1)
+            | x == 0 = 1
+
+--12
