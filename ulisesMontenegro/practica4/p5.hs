@@ -70,7 +70,7 @@ quitarTodos a (x:xs) = if (x == a) then (if (pertenece a xs) then quitarTodos a 
 
 -- h
 
-
+-- falta este xd
 
 -- i
 
