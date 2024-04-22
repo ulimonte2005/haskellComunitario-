@@ -61,6 +61,7 @@ quitarTodos :: (Eq t) => t -> [t] -> [t]
 quitarTodos a [] = []
 quitarTodos a (x:xs) = if (x == a) then (if (pertenece a xs) then quitarTodos a xs else xs) else if (pertenece a xs) then quitarTodos a (xs++[x]) else [x]++xs
 
+<<<<<<< Updated upstream
 -- g 
 
 -- eliminarRepetidos :: (Eq t) => [t] -> [t] 
@@ -73,6 +74,25 @@ quitarTodos a (x:xs) = if (x == a) then (if (pertenece a xs) then quitarTodos a 
 -- falta este xd
 
 -- i
+=======
+-- g (se usa todosDistintos y pertenece)
+
+eliminarRepetidos :: (Eq t) => [t] -> [t] 
+eliminarRepetidos [] = []
+eliminarRepetidos (x:xs) = if (todosDistintos ([x]++xs)) then [x]++xs else if (pertenece x xs) then eliminarRepetidos xs else eliminarRepetidos xs++[x]
+
+-- h (se usa pertenece y eliminarRepetidos)
+
+listasMismosElementos :: (Eq t) => [t] -> [t] -> Bool
+listasMismosElementos [] _ = True
+listasMismosElementos (x:xs) (y:ys) = if (pertenece x ([y]++ys)) then listasMismosElementos xs ([y]++ys) else False
+
+mismosElementos :: (Eq t) => [t] -> [t] -> Bool
+mismosElementos [] [] = True
+mismosElementos xs ys = listasMismosElementos (eliminarRepetidos xs) (eliminarRepetidos ys)
+
+-- i (se usa reverso)
+>>>>>>> Stashed changes
 
 capicua :: (Eq t) => [t] -> Bool
 capicua xs = if (xs == (reverso xs)) then True else False
