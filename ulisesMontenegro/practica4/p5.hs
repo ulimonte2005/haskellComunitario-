@@ -176,14 +176,60 @@ contarPalabras (x:xs)
     | x == ' ' = 1 + contarPalabras xs
     | otherwise = contarPalabras (xs)
 
--- c
+-- c - revisar bien como se hace
 
-palabras :: [Char] -> [[Char]]
-palabras [] = []
-palabras [x] = [x]
-palabras (x:y:xs)
-    | y == ' ' = x ++ palabras xs
-    | otherwise = palabras (xs)
+separarPalabras :: String -> [String]
+separarPalabras str = separarAux str [] []
 
--- d
+separarAux :: String -> String -> [String] -> [String]
+separarAux [] acc palabras = acc:palabras -- Añade la última palabra y revierte la lista final
+separarAux (x:xs) acc palabras
+    | x == ' '  = if null acc then separarAux xs [] palabras -- Ignora múltiples espacios
+                  else separarAux xs [] (acc:palabras)       -- Finaliza la palabra actual y la añade a la lista
+    | otherwise = separarAux xs (acc ++ [x]) palabras       -- Añade el carácter a la palabra actual
+
+-- d - revisar bien como se hace
+
+palabraMasLarga :: [Char] -> [Char]
+palabraMasLarga texto = palabraMasLargaAux (separarPalabras texto) []
+
+palabraMasLargaAux :: [[Char]] -> [Char] -> [Char]
+palabraMasLargaAux [] masLarga = masLarga
+palabraMasLargaAux (x:xs) masLarga
+    | length x > length masLarga = palabraMasLargaAux xs x
+    | otherwise                  = palabraMasLargaAux xs masLarga
+
+-- e - revisar bien como se hace
+
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar (x:xs) = x ++ aplanar xs
+
+-- f - revisar bien como se hace
+
+aplanarConBlancos :: [[Char]] -> [Char]
+aplanarConBlancos [] = []
+aplanarConBlancos [x] = x
+aplanarConBlancos (x:xs) = x ++ " " ++ aplanarConBlancos xs
+
+-- g - revisar bien como se hace
+
+aplanarConNBlancos :: [[Char]] -> Integer -> [Char]
+aplanarConNBlancos [] _ = []
+aplanarConNBlancos [x] _ = x
+aplanarConNBlancos (x:xs) n = x ++ replicate (fromIntegral n) ' ' ++ aplanarConNBlancos xs n
+ 
+
+-- ejercicioooooo 5
+
+-- a :)
+
+sumaAcumulada :: (Num t) => [t] -> [t] 
+sumaAcumulada list = sumaAux list 0
+
+sumaAux :: Num a => [a] -> a -> [a]
+sumaAux [] _ = []
+sumaAux (x:xs) acc = x+acc : sumaAux xs (x+acc)
+
+-- b :))) descomponer en primos 
 
